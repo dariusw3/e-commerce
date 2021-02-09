@@ -1,0 +1,53 @@
+.collection-item {
+  width: 22%;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  align-items: center;
+  margin-left: 8px;
+  margin-right: 8px;
+  position: relative;
+
+  .image {
+    width: 100%;
+    height: 95%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 5px;
+  }
+
+  .custom-button {
+    width: 80%;
+
+    position: absolute;
+    bottom: 65px;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(4.5px);
+    -webkit-backdrop-filter: blur(4.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    display: none;
+  }
+  &:hover {
+    .custom-button {
+      display: flex;
+    }
+  }
+
+  .collection-footer {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+
+    .name {
+      width: 90%;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      width: 10%;
+    }
+  }
+}

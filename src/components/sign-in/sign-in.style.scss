@@ -1,0 +1,35 @@
+.forgot-password {
+  padding: 1.2rem;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  text-decoration: underline;
+  color: rgb(117, 117, 117);
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.sign-in {
+  text-align: center;
+  & h2 {
+    margin-bottom: 0.6rem;
+  }
+}
+
+.google-button {
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.sign-in-with {
+  padding: 10px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+}
