@@ -1,18 +1,23 @@
 .cart-dropdown {
-  position: absolute;
-  width: 240px;
-  height: 340px;
-  display: flex;
-  flex-direction: column;
+  width: 20rem;
+  height: 100%;
+  margin-top: 2.7rem;
   padding: 20px;
-  border: 1px solid darkgray;
+
   background-color: white;
-  top: 90px;
-  right: 40px;
+
   z-index: 5;
 
+  .empty-message {
+    font-size: 20px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-weight: bold;
+  }
+
   .cart-items {
-    height: 300px;
+    width: 15rem;
+    height: auto;
     display: flex;
     flex-direction: column;
     overflow: scroll;
