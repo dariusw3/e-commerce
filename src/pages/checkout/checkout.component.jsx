@@ -11,7 +11,9 @@ import {
 
 import './checkout.styles.scss';
 
-const CheckoutPage = ({ cartItems, total }) => (
+const CheckoutPage = ({ cartItems, total }) => {
+    
+    return(
   <div className='checkout-page'>
     <div className='checkout-header'>
       <div className='header-block'>
@@ -30,12 +32,14 @@ const CheckoutPage = ({ cartItems, total }) => (
         <span>Remove</span>
       </div>
     </div>
-    {cartItems.map(cartItem => (
-      <CheckoutItem key={cartItem.id} cartItem={cartItem} />
-    ))}
+    {cartItems.map(cartItem => {
+        console.log(cartItem.id)
+        return(
+      <CheckoutItem cartItem={cartItem} key = {cartItem.id} />
+    )})}
     <div className='total'>TOTAL: ${total}</div>
   </div>
-);
+)}
 
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
