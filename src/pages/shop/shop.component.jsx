@@ -1,53 +1,43 @@
 import React, { Component } from 'react';
-import SHOP_DATA from './shop.data.js';
 import CollectionPreview from '../../components/collection-preview/collection-preview.component'
 import CartDropdown from '../../components/cart/cart-dropdown.component.jsx';
 import './shop.styles.scss'
+import {Route} from 'react-router-dom';
+
+import CollectionPage from '../collection/collection.component'
+
+
+import CollectionsOverview from '../../components/collections-overview/collections-overview.component'
+
 
 import {createStructuredSelector} from 'reselect'
 
+
+
 import {selectCartHidden} from '../../redux/cart/cart.selectors'
-import {selectCurrentUser} from '../../redux/user/user.selectors'
 
 import {connect} from 'react-redux';
 
-export class ShopPage extends Component {
-    constructor(props){
-        super(props)
-
-        this.state ={
-            collections: SHOP_DATA
-        }
-    }
-    
-    render(){
-        console.log(this.props.hidden)
-        const {collections} = this.state;
+export const ShopPage  = ({hidden, match}) => {
         return (
-        <div className={`${this.props.hidden ? '' : 'shop-container'}`}> 
+        <div className={`${hidden ? '' : 'shop-container'}`}> 
             <div className='shop-page'>
-                {
-                    collections.map( (collection) => {
-                        return (
-                            <CollectionPreview key= {collection.id} title = {collection.title} items={collection.items} />
-                        )
-                    })
-                }
-              
+              <Route exact path={`${match.path}`} component = {CollectionsOverview } />
+              <Route path={`${match.path}/:collectionId`} component = {CollectionPage} />
             </div>
             <div className = "sidebar">
-                { this.props.hidden ? null :
+                { hidden ? null :
             <CartDropdown/> 
                 }
                 </div>
         </div>
         )
     }
-}
+
 
 const mapStateToProps = createStructuredSelector({
-    currentUser: selectCurrentUser,
-    hidden: selectCartHidden
+    hidden: selectCartHidden,
+   
 })
 
 export default  connect(mapStateToProps)(ShopPage)
